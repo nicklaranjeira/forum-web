@@ -73,6 +73,8 @@ async def editar_post(request: Request):
             post["conteudo"] = form["conteudo"]
             post["autor"] = form["autor"]
 
+    return RedirectResponse(url="/", status_code=303)
+
 
 #deletar 
 @app.get("/delete", response_class=HTMLResponse)
@@ -89,9 +91,11 @@ async def excluir_post(request:Request):
     id = int(form.get("id"))
     print(id)
 
+    
     for post in posts:
         if post["id"] == id:
             posts.remove(post)
             break
+    
     return RedirectResponse(url="/", status_code=303)
 
