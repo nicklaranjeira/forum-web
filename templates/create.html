@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fórum WEB</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+</head>
+<body>
+    <h1>Adicione uma postagem</h1>
+        <form action="/create" method="post">
+            <input name="titulo" placeholder="Digite aqui o título"> <br>
+            <input name="resumo" placeholder="Resumo"> <br>
+            <input name="conteudo" placeholder="Digite aqui o conteudo"> <br>
+            <input name="autor" placeholder="Digite aqui o autor">  <br>
+            <button type="submit"> Enviar </button>
+        </form>
+       
+</body>
+</html>
