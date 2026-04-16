@@ -1,0 +1,1 @@
+CREATE database forum_web;

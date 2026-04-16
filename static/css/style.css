@@ -201,6 +201,47 @@ body > button {
 	max-width: 860px;
 }
 
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.post-card {
+    background: #fff;
+    border: 1px solid #e1e8ed;
+    border-radius: 16px;
+    padding: 18px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.post-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.post-card__title {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+}
+
+.post-card__author {
+    font-size: 0.9rem;
+    color: #657786;
+}
+
+.post-card__summary {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.post-card__content {
+    line-height: 1.5;
+    color: #333;
+}
+
 @media (max-width: 640px) {
 	body {
 		padding: 22px 14px 28px;
