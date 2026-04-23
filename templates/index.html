@@ -8,19 +8,29 @@
 </head>
 <body>
 
-
     <h1>Fórum WEB 💬</h1>
-        <ul>{% for post in posts %}
-            <p>Título: {{ post.titulo }}</p>
-            <p>Resumo: {{post.resumo}}</p>
-            <p>Conteudo: {{post.conteudo}}</p>
-            <p>Autor: {{post.autor}}</p>
 
+    <ul class="feed">
+        {% for post in posts %}
+        <li class="post-card">
+            <div class="post-card__header">
+                <div>
+                    {{post.id}}
+                    <h3 class="post-card__title">{{ post.titulo }}</h3>
+                    <p class="post-card__author">Autor: {{ post.autor }}</p>
+                </div>
+            </div>
+
+            <p class="post-card__summary">Resumo: {{ post.resumo }}</p>
+            <div class="post-card__content">
+                <p>Conteúdo: {{ post.conteudo }}</p>
+            </div>
+        </li>
         {% endfor %}
-        </ul>
-    
-    <button type="button">  
-        <a href="/create">Adicionar post</a> 
+    </ul>
+
+    <button type="button">
+        <a href="/create">Adicionar post</a>
     </button>
 
     <button type="button">
@@ -30,7 +40,6 @@
     <button type="button">
         <a href="/delete">Deletar um post</a>
     </button>
-
 
 </body>
 </html>

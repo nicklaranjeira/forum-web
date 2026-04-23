@@ -21,7 +21,7 @@ engine = create_engine(DATABASE_URL, echo=True) # é o que mantém as conexões 
 
 
 class Post(SQLModel, table=True):
-    id: int | None = Field(default=None, primary_key=True)
+    id: int | None = Field(default=None, primary_key=True) # field default none deixa o id automatico
     titulo: str
     resumo: str
     conteudo: str
@@ -75,6 +75,8 @@ async def tela_criar_post(request: Request):
 
 @app.get("/edit", response_class=HTMLResponse)
 def editar_post(request:Request, session:SessionDep):
+        posts = session.exec(select(Post)).all() # busca o context post dentro do bd
+
         return templates.TemplateResponse(
         request=request,
         name="edit.html",
@@ -99,8 +101,17 @@ async def editar_post(request: Request, session: SessionDep):
     return RedirectResponse(url="/", status_code=303)
 
 
+@app.get("/delete", response_class=HTMLResponse)
+async def tela_criar_post(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="delete.html"
+    )
+
+
 @app.post("/delete")
 async def excluir_post(request: Request, session: SessionDep):
+   
     form = await request.form()
     id = int(form.get("id"))
 
