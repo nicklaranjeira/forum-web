@@ -13,6 +13,7 @@ from sqlmodel import Field, Session, SQLModel, create_engine, select
 
 app = FastAPI()
 
+
 app.mount("/static", StaticFiles(directory="static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
